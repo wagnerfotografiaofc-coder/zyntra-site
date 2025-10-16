@@ -1,0 +1,238 @@
+/* --- CONFIGURAÇÕES GERAIS --- */
+:root {
+    --cor-fundo: #282828;
+    --cor-fundo-bloco: #1a1a1b;
+    --cor-borda: #3a3a3c;
+    --cor-texto-principal: #e0e0e0;
+    --cor-texto-titulo: #ffffff;
+    --cor-destaque: #8A2BE2;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-principal);
+    font-family: sans-serif;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- CABEÇALHO --- */
+header {
+    display: flex;
+    justify-content: flex-end; /* Alinha o ícone na direita */
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--cor-borda);
+    position: relative;
+}
+.logo {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: var(--cor-texto-titulo);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.menu-icon {
+    font-size: 2em;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* --- MENU LATERAL --- */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 280px;
+    height: 100%;
+    background-color: var(--cor-fundo-bloco);
+    border-left: 1px solid var(--cor-borda);
+    padding: 80px 30px 20px;
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+}
+.side-menu.open {
+    right: 0;
+}
+.side-menu nav ul {
+    list-style: none;
+}
+.side-menu nav li a {
+    color: var(--cor-texto-titulo);
+    font-size: 1.8em;
+    font-weight: bold;
+    display: block;
+    padding: 15px 0;
+    transition: color 0.2s;
+}
+.side-menu nav li a:hover {
+    color: var(--cor-destaque);
+}
+
+/* --- ESTRUTURA PRINCIPAL (GRID) --- */
+.top-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    margin-top: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+/* --- POST EM DESTAQUE (HERO) --- */
+.hero .hero-image {
+    width: 100%;
+    height: 400px;
+    background-color: #333;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+.hero h1 a {
+    font-size: 1.8em;
+    color: var(--cor-texto-titulo);
+    line-height: 1.2;
+    transition: color 0.2s;
+}
+.hero h1 a:hover {
+    color: var(--cor-destaque);
+}
+.hero p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+/* --- BARRA LATERAL (SIDEBAR) --- */
+.sidebar h3 {
+    font-size: 1.8em;
+    color: var(--cor-texto-titulo);
+    border-left: 4px solid var(--cor-destaque);
+    padding-left: 10px;
+    margin-bottom: 25px;
+}
+.sidebar-post-item {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--cor-borda);
+}
+.sidebar-post-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+.sidebar-post-item a {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.sidebar-post-item .item-image {
+    width: 70px;
+    height: 70px;
+    background-color: #333;
+    border-radius: 5px;
+    flex-shrink: 0;
+}
+.sidebar-post-item .item-title {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--cor-texto-titulo);
+    transition: color 0.2s;
+}
+.sidebar-post-item a:hover .item-title {
+    color: var(--cor-destaque);
+}
+
+/* --- SEÇÃO DE CARDS --- */
+.posts-section {
+    margin-top: 40px;
+}
+.section-title {
+    font-size: 2.2em;
+    color: var(--cor-texto-titulo);
+    margin-bottom: 20px;
+    border-left: 4px solid var(--cor-destaque);
+    padding-left: 15px;
+}
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+.card {
+    background-color: var(--cor-fundo-bloco);
+    border: 1px solid var(--cor-borda);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+.card a { display: flex; flex-direction: column; height: 100%; }
+.card-image {
+    height: 180px;
+    width: 100%;
+    background-color: #333;
+}
+.card-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.card-title {
+    font-size: 1.4em;
+    color: var(--cor-texto-titulo);
+    margin-bottom: 10px;
+}
+.card-description {
+    font-size: 0.95em;
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+.card-button {
+    display: inline-block;
+    background-color: var(--cor-destaque);
+    color: var(--cor-texto-titulo);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+/* --- AJUSTES PARA CELULAR --- */
+@media (max-width: 900px) {
+    .top-grid {
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 768px) {
+    .logo {
+        position: static;
+        transform: none;
+        text-align: center;
+        width: auto;
+        order: 1;
+        flex-grow: 1;
+    }
+    header {
+        justify-content: space-between;
+    }
+    .menu-icon {
+        order: 2;
+    }
+}
